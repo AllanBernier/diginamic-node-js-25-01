@@ -33,3 +33,46 @@ app.post("/products", (req, res) => {
       res.status(500).json({ message: "Internal server error !" })
     })
 })
+
+
+app.get("/products", async (req, res) => {
+  try {
+    const products = await Product.find()
+   res.json(products)
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error !" })
+  }
+})
+
+app.get("/products/:id", async (req, res) => {
+  const {id } = req.params
+
+  try {
+    const product = await Product.findById(id)
+    res.json(product)
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error !" })
+  }
+})
+
+app.put("/product/:id", async (req, res) => {
+  const {id } = req.params
+
+  try {
+    const product = findByIdAndUpdate(id, req.body)
+    res.json(product)
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error !" })
+  }
+})
+
+app.delete("/product/:id", async (req, res) => {
+  const {id } = req.params
+
+  try {
+    const product = findByIdAndDelete(id)
+    res.json(product)
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error !" })
+  }
+})
