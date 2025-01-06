@@ -59,7 +59,7 @@ app.put("/product/:id", async (req, res) => {
   const {id } = req.params
 
   try {
-    const product = findByIdAndUpdate(id, req.body)
+    const product = Product.findByIdAndUpdate(id, req.body)
     res.json(product)
   } catch (error) {
     res.status(500).json({ message: "Internal server error !" })
@@ -70,7 +70,7 @@ app.delete("/product/:id", async (req, res) => {
   const {id } = req.params
 
   try {
-    const product = findByIdAndDelete(id)
+    const product = Product.findByIdAndDelete(id)
     res.json(product)
   } catch (error) {
     res.status(500).json({ message: "Internal server error !" })
