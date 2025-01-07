@@ -18,8 +18,9 @@ const edit = (req, res) => {
 const store = (req, res) => {
 
   Product.create(req.body)
-  .then( (u) => res.render("/products"))
+  .then( (u) => res.redirect("/products"))
 }
+
 const update = (req, res) => {}
 const destroy = (req, res) => {}
 
