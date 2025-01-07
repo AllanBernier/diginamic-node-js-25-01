@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>User list :</h1>
+
+  <table>
+
+    <thead>
+      <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Age</td>
+        <td>
+          <a href="/users/create">Create</a>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.map( (u) => { %>
+        <tr>
+          <td> <%= u.id %></td>
+          <td> <%= u.name %></td>
+          <td> <%= u.age %></td>
+          <td>
+            <a href="/users/<%= u.id %>">Show</a>
+            <a href="/users/<%= u.id %>/edit">update</a>
+            <form action="/users/<%= u.id %>/destroy" method="post">
+              <input type="submit" value="delete">
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+
+
+  </table>
+</body>
+</html>
