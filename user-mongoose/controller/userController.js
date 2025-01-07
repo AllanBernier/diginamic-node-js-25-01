@@ -17,14 +17,11 @@ const index = async (req, res) => {
   const offset = (page - 1) * limit
 
   try {
-    const totalPages = await User.countDocuments()
-    const data = await User.find().skip(offset).limit(limit) 
-
-    res.json({
-      data,
-      totalPages,
-      currentPage: page,
-    })
+    const [totalPages, data] = await Promise.all([
+      User.countDocuments(),
+      User.find().skip(offset).limit(limit)
+    ])
+    res.json({data,totalPages,currentPage: page, })
 
   } catch (error) {
     res.status(500).json({ message: "Internal Server Error" })
