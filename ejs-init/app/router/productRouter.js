@@ -7,7 +7,7 @@ router.get("/products/create", create)
 router.get("/products/:id/edit", edit)
 router.get("/products/:id", show)
 
-router.delete("/products/:id", destroy)
+router.post("/products/:id", destroy)
 router.post("/products", store)
 router.put("/products/:id", update)
 
