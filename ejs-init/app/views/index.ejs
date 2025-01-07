@@ -28,7 +28,7 @@
           <td> <%= p.description %></td>
           <td> 
             <a href="/products/<%= p.id %>"> Show </a> 
-            <a href="/products/create"> Edit </a>
+            <a href="/products/<%= p.id %>/edit"> Edit </a>
 
             <form action="/products/<%= p.id %>" method="post">
               <input type="submit" value="Delete">

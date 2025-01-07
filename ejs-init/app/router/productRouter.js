@@ -9,7 +9,7 @@ router.get("/products/:id", show)
 
 router.post("/products/:id", destroy)
 router.post("/products", store)
-router.put("/products/:id", update)
+router.post("/products/:id/edit", update)
 
 
 module.exports = router
